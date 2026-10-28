@@ -1,0 +1,20 @@
+[
+  {
+    "id": "JD-001",
+    "title": "Senior Backend Architect (Biased Baseline)",
+    "department": "Core Infrastructure",
+    "text": "We are looking for a rockstar, aggressive ninja engineer who thrives in high-stress combat environments. \nRequirements:\n- Graduate from Premier institutes only (IIT / BITS / NIT) - Tier 2/3 candidates will not be evaluated.\n- Native-level English speaker with flawless western communication accent.\n- Must relocate immediately to Bangalore HQ; remote work is strictly forbidden.\n- Young, energetic culture with 70-hour work weeks and weekend war rooms.\n- Minimum 8 years continuous experience with no career gaps or personal leaves.\n- High GPA (>= 8.5) from top-tier institutions."
+  },
+  {
+    "id": "JD-002",
+    "title": "AI / ML Research Associate (Gendered & Exclusionary)",
+    "department": "Applied Machine Learning",
+    "text": "Seeking a dominant, assertive coder to spearhead our autonomous trading algorithmic bots.\nRequirements:\n- Proven track record of crushing competition in intense algorithmic hackathons.\n- Unencumbered by family commitments; mandatory late-night deployments.\n- Candidates must possess recent graduation dates (Class of 2023 or 2024 only; older candidates need not apply).\n- Able to handle physical server rack installations and lift 50 lbs equipment without accommodations."
+  },
+  {
+    "id": "JD-003",
+    "title": "Full-Stack Software Engineer (Inclusive Example)",
+    "department": "Platform Services",
+    "text": "We are looking for an experienced Software Engineer to build scalable microservices and user-facing features.\nRequirements:\n- Strong proficiency in modern TypeScript, Python, or Go.\n- Experience with relational and distributed database systems.\n- Demonstrated ability to collaborate thoughtfully across cross-functional teams.\n- Degree in Computer Science, related technical field, or equivalent practical experience.\n- Flexible hybrid working arrangements available with supportive parental leave policies."
+  }
+]

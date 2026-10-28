@@ -1,0 +1,121 @@
+[
+  {
+    "report_id": "SCAM-REG-001",
+    "raw_text": "Pay ₹2500 training fee to HR Ramesh at 98450-XXXXX for Google Bangalore offer letter.",
+    "normalized_pattern": "pay [amount] training fee to [person] at [phone] for [company] offer letter",
+    "redacted_text": "Pay [AMOUNT] training fee to [PERSON] at [PHONE] for Google Bangalore offer letter.",
+    "threat_category": "Training Fee / Fake Offer",
+    "threat_level": "HIGH",
+    "claimed_company": "Google Bangalore",
+    "indicators": [
+      "Mandatory upfront training fee",
+      "Unverified recruiter identity (HR Ramesh)",
+      "Unsolicited offer letter claim",
+      "Urgent direct money transfer"
+    ],
+    "extracted_entities": {
+      "amount": "₹2500",
+      "person": "HR Ramesh",
+      "phone": "98450-XXXXX",
+      "company": "Google"
+    },
+    "reported_count": 42,
+    "first_reported": "2026-10-15T10:30:00Z",
+    "verified_by_moderator": true,
+    "sha256_fingerprint": "eadf67550caa9ff4eb44ed36a0ed0210e00f7877f6a46a86821d413754692a32"
+  },
+  {
+    "report_id": "SCAM-REG-002",
+    "raw_text": "Urgent: Deposit ₹4999 refundable security charge to upi hr-amazon-verify@okaxis to confirm your software engineer internship letter. Offer expires in 2 hours.",
+    "normalized_pattern": "urgent deposit [amount] refundable security charge to [upi] to confirm your [role] offer expires in [time]",
+    "redacted_text": "Urgent: Deposit [AMOUNT] refundable security charge to [UPI] to confirm your software engineer internship letter. Offer expires in 2 hours.",
+    "threat_category": "Security Deposit / Urgency Scam",
+    "threat_level": "CRITICAL",
+    "claimed_company": "Amazon",
+    "indicators": [
+      "Fake UPI handle impersonating company",
+      "Refundable security deposit demand",
+      "Artificial deadline pressure (2 hours)",
+      "Immediate internship confirmation lure"
+    ],
+    "extracted_entities": {
+      "amount": "₹4999",
+      "upi": "hr-amazon-verify@okaxis",
+      "company": "Amazon"
+    },
+    "reported_count": 87,
+    "first_reported": "2026-10-18T14:15:00Z",
+    "verified_by_moderator": true,
+    "sha256_fingerprint": "6c32eb466e3a10c007c318e4f380da0bcab179a087ed14d21008a08678594ae2"
+  },
+  {
+    "report_id": "SCAM-REG-003",
+    "raw_text": "बधाई हो! आपका चयन Microsoft में हुआ है। नियुक्ति पत्र प्राप्त करने के लिए ₹1500 रजिस्ट्रेशन शुल्क 9876543210 पर GPay करें।",
+    "normalized_pattern": "बधाई हो आपका चयन [company] में हुआ है नियुक्ति पत्र प्राप्त करने के लिए [amount] रजिस्ट्रेशन शुल्क [phone] पर gpay करें",
+    "redacted_text": "बधाई हो! आपका चयन Microsoft में हुआ है। नियुक्ति पत्र प्राप्त करने के लिए [AMOUNT] रजिस्ट्रेशन शुल्क [PHONE] पर GPay करें।",
+    "threat_category": "Multilingual Indic Scam (Hindi)",
+    "threat_level": "HIGH",
+    "claimed_company": "Microsoft",
+    "indicators": [
+      "Hindi recruitment lure with upfront registration fee",
+      "Direct mobile number payment demand (GPay)",
+      "Unsolicited selection confirmation"
+    ],
+    "extracted_entities": {
+      "amount": "₹1500",
+      "phone": "9876543210",
+      "company": "Microsoft"
+    },
+    "reported_count": 29,
+    "first_reported": "2026-10-20T09:00:00Z",
+    "verified_by_moderator": true,
+    "sha256_fingerprint": "92dc31a2eba5c4cb2049205c7bb9f5b8f7aad5054d17451e70c61bf44512ab4c"
+  },
+  {
+    "report_id": "SCAM-REG-004",
+    "raw_text": "ಅಭಿನಂದನೆಗಳು! Infosys ಕ್ಯಾಂಪಸ್ ಆಯ್ಕೆ ಖಚಿತವಾಗಿದೆ. ಲ್ಯಾಪ್ಟಾಪ್ ವಿಮೆಗಾಗಿ ₹3000 ಹಣವನ್ನು ಈ ಲಿಂಕ್ ಮೂಲಕ ಪಾವತಿಸಿ: http://infosys-careers-portal.fakejobs.in",
+    "normalized_pattern": "ಅಭಿನಂದನೆಗಳು [company] ಕ್ಯಾಂಪಸ್ ಆಯ್ಕೆ ಖಚಿತವಾಗಿದೆ ಲ್ಯಾಪ್ಟಾಪ್ ವಿಮೆಗಾಗಿ [amount] ಹಣವನ್ನು ಈ ಲಿಂಕ್ ಮೂಲಕ ಪಾವತಿಸಿ [url]",
+    "redacted_text": "ಅಭಿನಂದನೆಗಳು! Infosys ಕ್ಯಾಂಪಸ್ ಆಯ್ಕೆ ಖಚಿತವಾಗಿದೆ. ಲ್ಯಾಪ್ಟಾಪ್ ವಿಮೆಗಾಗಿ [AMOUNT] ಹಣವನ್ನು ಈ ಲಿಂಕ್ ಮೂಲಕ ಪಾವತಿಸಿ: [URL]",
+    "threat_category": "Multilingual Indic Scam (Kannada)",
+    "threat_level": "CRITICAL",
+    "claimed_company": "Infosys",
+    "indicators": [
+      "Kannada language regional targeting",
+      "Bogus 'Laptop Insurance' fee requirement",
+      "Phishing domain spoofing corporate careers portal"
+    ],
+    "extracted_entities": {
+      "amount": "₹3000",
+      "url": "http://infosys-careers-portal.fakejobs.in",
+      "company": "Infosys"
+    },
+    "reported_count": 53,
+    "first_reported": "2026-10-22T16:45:00Z",
+    "verified_by_moderator": true,
+    "sha256_fingerprint": "b17a1d5e47e39a1ec55a0106c136f4707f3c7301aa527b919e72fec37273e1af"
+  },
+  {
+    "report_id": "SCAM-REG-005",
+    "raw_text": "Dear candidate, your profile is shortlisted for TCS off-campus. You must clear document verification charges of ₹1999 to recruiter Suresh on WhatsApp 9123456789.",
+    "normalized_pattern": "dear candidate your profile is shortlisted for [company] off-campus you must clear document verification charges of [amount] to recruiter [person] on whatsapp [phone]",
+    "redacted_text": "Dear candidate, your profile is shortlisted for TCS off-campus. You must clear document verification charges of [AMOUNT] to recruiter [PERSON] on WhatsApp [PHONE].",
+    "threat_category": "Document Verification Fee",
+    "threat_level": "HIGH",
+    "claimed_company": "TCS",
+    "indicators": [
+      "Document verification charge request",
+      "Informal WhatsApp recruiter contact",
+      "Unsolicited off-campus shortlisting"
+    ],
+    "extracted_entities": {
+      "amount": "₹1999",
+      "person": "Suresh",
+      "phone": "9123456789",
+      "company": "TCS"
+    },
+    "reported_count": 38,
+    "first_reported": "2026-10-25T11:20:00Z",
+    "verified_by_moderator": true,
+    "sha256_fingerprint": "ea553f2f8414bb5dbf8d8e17d59e040d78f9cf7242d3093f239ac69333bf1ab3"
+  }
+]
