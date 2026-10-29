@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "buildCommand": "cd AI-Bias-Student-Protection-Platform/frontend && npm install && npm run build",
+  "outputDirectory": "AI-Bias-Student-Protection-Platform/frontend/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

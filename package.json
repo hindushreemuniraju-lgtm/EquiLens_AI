@@ -1,0 +1,10 @@
+{
+  "name": "equilens",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EquiLens — AI Bias Mitigation & Student Protection Platform",
+  "scripts": {
+    "build": "cd AI-Bias-Student-Protection-Platform/frontend && npm install && npm run build",
+    "start": "cd AI-Bias-Student-Protection-Platform/frontend && npm run preview"
+  }
+}
