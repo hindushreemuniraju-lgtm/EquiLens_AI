@@ -4,8 +4,8 @@ import { api } from '../services/api';
 import { FairnessScorecardData, DatasetItem } from '../types';
 
 export const ThresholdSandboxPage: React.FC = () => {
-  const [datasets, setDatasets] = useState<DatasetItem[]>([]);
-  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("");
+  const [datasets, setDatasets] = useState<DatasetItem[]>([{ id: "DATASET-SAMPLE-01", name: "Recruitment Fairness Audit Baseline (1,200 Applicants)" } as DatasetItem]);
+  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("DATASET-SAMPLE-01");
   const [thresholds, setThresholds] = useState<Record<string, number>>({
     Male: 0.65,
     Female: 0.50,
@@ -27,9 +27,8 @@ export const ThresholdSandboxPage: React.FC = () => {
   }, []);
 
   const runRecalculation = async (datasetId?: string, customThresh?: Record<string, number>) => {
-    const dId = datasetId || selectedDatasetId;
+    const dId = datasetId || selectedDatasetId || "DATASET-SAMPLE-01";
     const t = customThresh || thresholds;
-    if (!dId) return;
 
     setLoading(true);
     try {

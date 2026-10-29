@@ -4,8 +4,8 @@ import { api } from '../services/api';
 import { RemediationResult, DatasetItem } from '../types';
 
 export const RemediationLabPage: React.FC = () => {
-  const [datasets, setDatasets] = useState<DatasetItem[]>([]);
-  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("");
+  const [datasets, setDatasets] = useState<DatasetItem[]>([{ id: "DATASET-SAMPLE-01", name: "Recruitment Fairness Audit Baseline (1,200 Applicants)" } as DatasetItem]);
+  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("DATASET-SAMPLE-01");
   const [techniqueStage, setTechniqueStage] = useState<string>("preprocessing");
   const [techniqueType, setTechniqueType] = useState<string>("reweighting");
   const [protectedAttr, setProtectedAttr] = useState<string>("gender");
@@ -25,10 +25,9 @@ export const RemediationLabPage: React.FC = () => {
   }, []);
 
   const runExperiment = async (dId?: string, stage?: string, type?: string) => {
-    const datasetId = dId || selectedDatasetId;
+    const datasetId = dId || selectedDatasetId || "DATASET-SAMPLE-01";
     const st = stage || techniqueStage;
     const ty = type || techniqueType;
-    if (!datasetId) return;
 
     setLoading(true);
     try {

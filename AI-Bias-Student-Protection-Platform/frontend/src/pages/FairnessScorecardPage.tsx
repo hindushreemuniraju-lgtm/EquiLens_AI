@@ -5,8 +5,8 @@ import { FairnessScorecardData, DatasetItem } from '../types';
 import { FairnessHealthGauge } from '../components/FairnessHealthGauge';
 
 export const FairnessScorecardPage: React.FC = () => {
-  const [datasets, setDatasets] = useState<DatasetItem[]>([]);
-  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("");
+  const [datasets, setDatasets] = useState<DatasetItem[]>([{ id: "DATASET-SAMPLE-01", name: "Recruitment Fairness Audit Baseline (1,200 Applicants)" } as DatasetItem]);
+  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("DATASET-SAMPLE-01");
   const [protectedAttr, setProtectedAttr] = useState<string>("gender");
   const [referenceGroup, setReferenceGroup] = useState<string>("Male");
   const [scorecard, setScorecard] = useState<FairnessScorecardData | null>(null);
@@ -25,10 +25,9 @@ export const FairnessScorecardPage: React.FC = () => {
   }, []);
 
   const runAudit = async (datasetId?: string, attr?: string, ref?: string) => {
-    const dId = datasetId || selectedDatasetId;
+    const dId = datasetId || selectedDatasetId || "DATASET-SAMPLE-01";
     const a = attr || protectedAttr;
     const r = ref || referenceGroup;
-    if (!dId) return;
 
     setLoading(true);
     try {

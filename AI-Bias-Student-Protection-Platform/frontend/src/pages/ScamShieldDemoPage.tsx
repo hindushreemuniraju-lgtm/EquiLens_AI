@@ -22,6 +22,11 @@ const DEMO_SAMPLE_MESSAGE = "Pay ₹2500 training fee to HR Ramesh at 98450-XXXX
 
 export const ScamShieldDemoPage: React.FC = () => {
   const [inputMessage, setInputMessage] = useState<string>(DEMO_SAMPLE_MESSAGE);
+  const [error, setError] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    handleRunDemo(DEMO_SAMPLE_MESSAGE);
+  }, []);
   const [result, setResult] = useState<ScamDemonstrationResult | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [copiedFingerprint, setCopiedFingerprint] = useState<boolean>(false);

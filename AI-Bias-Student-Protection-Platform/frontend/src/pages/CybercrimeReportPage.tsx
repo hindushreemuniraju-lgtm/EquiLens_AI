@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileText, Copy, Check, Download, ShieldCheck, AlertCircle, ExternalLink } from 'lucide-react';
 import { api } from '../services/api';
 
@@ -9,6 +9,10 @@ export const CybercrimeReportPage: React.FC = () => {
     const [complaint, setComplaint] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [copied, setCopied] = useState<boolean>(false);
+
+    useEffect(() => {
+        handleGenerate();
+    }, []);
 
     const handleGenerate = async () => {
         if (!rawInput.trim()) return;

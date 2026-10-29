@@ -99,7 +99,7 @@ export const PrivacyCenterPage: React.FC = () => {
                 </div>
 
                 <p className="text-xs font-sans text-slate-300 leading-relaxed bg-[#0A0A0A] p-3.5 rounded-lg border border-[#1E1E2A]">
-                    {notices[selectedLanguage] || notices["en"]}
+                    {notices?.[selectedLanguage] || notices?.["en"] || "EquiLens processes personal data under strict purpose limitation principles. Your demographic information is stored in an isolated vault and never enters recruitment prediction features."}
                 </p>
             </div>
 
@@ -203,7 +203,7 @@ export const PrivacyCenterPage: React.FC = () => {
                         Active Automated Data Minimization &amp; Retention Policy
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
-                        {retentionStatus.retention_rules.map((rule: any, i: number) => (
+                        {(retentionStatus?.retention_rules || []).map((rule: any, i: number) => (
                             <div key={i} className="p-3 bg-[#0A0A0A] rounded-lg border border-[#1E1E2A] space-y-1">
                                 <div className="text-white font-bold truncate">{rule.data_category}</div>
                                 <div className="text-[#007BA7]">Max: {rule.max_retention_days} Days</div>

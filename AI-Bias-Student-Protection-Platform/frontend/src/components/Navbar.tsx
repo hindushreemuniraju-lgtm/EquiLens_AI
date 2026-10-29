@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShieldAlert, Cpu, Sparkles, Scale, Zap } from 'lucide-react';
+import { Cpu, Scale, Zap, CheckCircle2 } from 'lucide-react';
 import { api } from '../services/api';
 
 export const Navbar: React.FC = () => {
   const location = useLocation();
-  const [fairnessScore, setFairnessScore] = useState<number>(78.5);
+  const [fairnessScore, setFairnessScore] = useState<number>(31.7);
   const [isBackendOnline, setIsBackendOnline] = useState<boolean>(true);
 
   useEffect(() => {
     api.getOverviewStats()
       .then(stats => {
         setFairnessScore(stats.latest_fairness_health_index);
-        setIsBackendOnline(true);
+        setIsBackendOnline(api.isLiveBackend());
       })
-      .catch(() => setIsBackendOnline(false));
+      .catch(() => {
+        setIsBackendOnline(false);
+      });
   }, [location.pathname]);
 
   return (
@@ -37,7 +39,7 @@ export const Navbar: React.FC = () => {
               </span>
             </div>
             <p className="text-[11px] text-slate-400 font-mono tracking-wider">
-              AI BIAS & CANDIDATE PROTECTION PLATFORM
+              AI BIAS &amp; CANDIDATE PROTECTION PLATFORM
             </p>
           </div>
         </Link>
@@ -45,9 +47,12 @@ export const Navbar: React.FC = () => {
 
       {/* Center Status / Mission Callout */}
       <div className="hidden lg:flex items-center space-x-3 bg-[#121217] px-4 py-1.5 rounded-full border border-[#22222E]">
-        <div className={`w-2.5 h-2.5 rounded-full ${isBackendOnline ? 'bg-emerald-400 animate-pulse' : 'bg-red-500'}`} />
+        <div className={`w-2.5 h-2.5 rounded-full ${isBackendOnline ? 'bg-emerald-400 animate-pulse' : 'bg-fuchsia-400 animate-pulse'}`} />
         <span className="text-xs font-mono text-slate-300">
           CENTRAL MISSION: <span className="text-[#007BA7] font-semibold">AI BIAS MITIGATION</span> &amp; RESPONSIBLE FAIRNESS
+        </span>
+        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#181824] text-slate-400 border border-[#22222E]">
+          {isBackendOnline ? 'LIVE API' : 'EMBEDDED ENGINE'}
         </span>
       </div>
 
@@ -62,7 +67,7 @@ export const Navbar: React.FC = () => {
           <div className="text-left">
             <div className="text-[10px] text-slate-400 font-mono uppercase leading-tight">Fairness Health</div>
             <div className="text-sm font-bold font-mono text-[#007BA7] leading-tight">
-              {fairnessScore} <span className="text-[10px] text-slate-500">/ 100</span>
+              {fairnessScore.toFixed(1)} <span className="text-[10px] text-slate-500">/ 100</span>
             </div>
           </div>
         </Link>

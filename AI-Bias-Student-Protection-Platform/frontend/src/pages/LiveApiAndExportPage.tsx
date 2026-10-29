@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Share2, Download, Copy, Check, FileText, Send, Sparkles, CheckCircle2 } from 'lucide-react';
 import { api } from '../services/api';
 
@@ -21,6 +21,11 @@ export const LiveApiAndExportPage: React.FC = () => {
     const [exportReport, setExportReport] = useState<string | null>(null);
     const [exportLoading, setExportLoading] = useState<boolean>(false);
     const [copiedReport, setCopiedReport] = useState<boolean>(false);
+
+    useEffect(() => {
+        handleStreamCandidate();
+        handleGenerateExport();
+    }, []);
 
     const handleStreamCandidate = async () => {
         setEvalLoading(true);

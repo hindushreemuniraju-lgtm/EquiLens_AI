@@ -4,8 +4,8 @@ import { api } from '../services/api';
 import { ProxyLeakageResult, DatasetItem } from '../types';
 
 export const ProxyGuardPage: React.FC = () => {
-  const [datasets, setDatasets] = useState<DatasetItem[]>([]);
-  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("");
+  const [datasets, setDatasets] = useState<DatasetItem[]>([{ id: "DATASET-SAMPLE-01", name: "Recruitment Fairness Audit Baseline (1,200 Applicants)" } as DatasetItem]);
+  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("DATASET-SAMPLE-01");
   const [protectedAttr, setProtectedAttr] = useState<string>("gender");
   const [result, setResult] = useState<ProxyLeakageResult | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,9 +23,8 @@ export const ProxyGuardPage: React.FC = () => {
   }, []);
 
   const runAnalysis = async (datasetId?: string, attr?: string) => {
-    const dId = datasetId || selectedDatasetId;
+    const dId = datasetId || selectedDatasetId || "DATASET-SAMPLE-01";
     const a = attr || protectedAttr;
-    if (!dId) return;
 
     setLoading(true);
     try {

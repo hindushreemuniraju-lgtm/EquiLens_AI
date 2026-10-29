@@ -4,8 +4,10 @@ import { api } from '../services/api';
 import { RubricTraceResult } from '../types';
 
 export const RubricTracerPage: React.FC = () => {
-  const [jobText, setJobText] = useState<string>("");
-  const [samples, setSamples] = useState<any[]>([]);
+  const [jobText, setJobText] = useState<string>("Senior Software Engineer. Premier institutes only (IIT/BITS/NIT). Native-level English required. Must relocate immediately to Bengaluru within 7 days. Continuous employment only with zero gap years.");
+  const [samples, setSamples] = useState<any[]>([
+    { id: "SAMPLE-01", title: "Premier Institutes & Urgent Relocation", text: "Senior Software Engineer. Premier institutes only (IIT/BITS/NIT). Native-level English required. Must relocate immediately to Bengaluru within 7 days. Continuous employment only with zero gap years." }
+  ]);
   const [result, setResult] = useState<RubricTraceResult | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);

@@ -192,7 +192,7 @@ export const LearnModePage: React.FC = () => {
                                     Red Flags Identified in this Modus Operandi:
                                 </span>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono text-slate-300">
-                                    {feedback.red_flags.map((rf: string, i: number) => (
+                                    {(feedback.red_flags || []).map((rf: string, i: number) => (
                                         <div key={i} className="flex items-center gap-2">
                                             <span className="w-1.5 h-1.5 rounded-full bg-[#FF2D95]" />
                                             <span>{rf}</span>

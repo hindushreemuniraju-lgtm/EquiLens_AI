@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Languages, AlertTriangle, CheckCircle2, Sparkles, Layers } from 'lucide-react';
 import { api } from '../services/api';
 
@@ -25,6 +25,10 @@ export const RegionalScannerPage: React.FC = () => {
     const [messageText, setMessageText] = useState<string>(SAMPLES[0].text);
     const [result, setResult] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(false);
+
+    useEffect(() => {
+        handleScan(SAMPLES[0].text);
+    }, []);
 
     const handleScan = async (text?: string) => {
         const t = text || messageText;

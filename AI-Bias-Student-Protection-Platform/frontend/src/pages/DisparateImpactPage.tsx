@@ -4,28 +4,24 @@ import { api } from '../services/api';
 import { FairnessScorecardData, DatasetItem } from '../types';
 
 export const DisparateImpactPage: React.FC = () => {
-  const [datasets, setDatasets] = useState<DatasetItem[]>([]);
-  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("");
+  const [datasets, setDatasets] = useState<DatasetItem[]>([{ id: "DATASET-SAMPLE-01", name: "Recruitment Fairness Audit Baseline (1,200 Applicants)" } as DatasetItem]);
+  const [selectedDatasetId, setSelectedDatasetId] = useState<string>("DATASET-SAMPLE-01");
   const [protectedAttr, setProtectedAttr] = useState<string>("gender");
   const [scorecard, setScorecard] = useState<FairnessScorecardData | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    runAudit("DATASET-SAMPLE-01", "gender");
     api.getDatasets()
       .then(list => {
-        setDatasets(list);
-        if (list.length > 0) {
-          setSelectedDatasetId(list[0].id);
-          runAudit(list[0].id, "gender");
-        }
+        if (list && list.length > 0) setDatasets(list);
       })
       .catch(console.error);
   }, []);
 
   const runAudit = async (datasetId?: string, attr?: string) => {
-    const dId = datasetId || selectedDatasetId;
+    const dId = datasetId || selectedDatasetId || "DATASET-SAMPLE-01";
     const a = attr || protectedAttr;
-    if (!dId) return;
 
     setLoading(true);
     try {

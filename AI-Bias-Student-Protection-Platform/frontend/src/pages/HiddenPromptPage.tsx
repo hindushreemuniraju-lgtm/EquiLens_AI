@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileCode, AlertTriangle, CheckCircle2, ShieldAlert, Sparkles, Layers } from 'lucide-react';
 import { api } from '../services/api';
 
@@ -26,6 +26,10 @@ export const HiddenPromptPage: React.FC = () => {
   const [resumeText, setResumeText] = useState<string>(SAMPLE_GAMING_RESUME);
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    handleAudit(SAMPLE_GAMING_RESUME);
+  }, []);
 
   const handleAudit = async (text?: string) => {
     const t = text || resumeText;
